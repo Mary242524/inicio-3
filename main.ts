@@ -1,5 +1,5 @@
 input.onButtonPressed(Button.A, function () {
-    basic.showNumber(0)
+    basic.showNumber(1)
 })
 input.onButtonPressed(Button.AB, function () {
     basic.showNumber(3)
@@ -10,21 +10,17 @@ input.onButtonPressed(Button.B, function () {
 basic.pause(100)
 basic.clearScreen()
 basic.forever(function () {
-    if (input.lightLevel() > 150) {
+    if (input.compassHeading() < 315 && input.compassHeading() > 45) {
         basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
+            . . # . .
+            . # # # .
+            # . # . #
+            . . # . .
+            . . # . .
             `)
+    } else if (input.compassHeading() < 315 && input.compassHeading() > 45) {
+    	
     } else {
-        basic.showLeds(`
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            `)
+    	
     }
 })

@@ -10,7 +10,34 @@ input.onButtonPressed(Button.B, function () {
 basic.pause(100)
 basic.clearScreen()
 basic.forever(function () {
-    if (input.compassHeading() < 315 && input.compassHeading() > 45) {
+    if (input.lightLevel() < 100 && input.buttonIsPressed(Button.B)) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
+    }
+    if (input.lightLevel() < 100 && input.buttonIsPressed(Button.A)) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+    }
+    if (input.compassHeading() > 45 && input.compassHeading() < 135) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+    }
+    if (input.compassHeading() > 316 || input.compassHeading() < 44) {
         basic.showLeds(`
             . . # . .
             . # # # .
@@ -18,9 +45,23 @@ basic.forever(function () {
             . . # . .
             . . # . .
             `)
-    } else if (input.compassHeading() < 315 && input.compassHeading() > 45) {
-    	
-    } else {
-    	
+    }
+    if (input.compassHeading() > 226 && input.compassHeading() < 315) {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+    }
+    if (input.compassHeading() > 135 && input.compassHeading() < 225) {
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            # . # . #
+            . # # # .
+            . . # . .
+            `)
     }
 })
